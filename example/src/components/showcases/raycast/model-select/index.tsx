@@ -42,8 +42,9 @@ export const ModelSelect = ({ data, model, setModel }: Props) => {
     <Select
       value={model}
       onValueChange={(value) => {
-        const modelValue = data.find((m) => m.value === value?.value);
-        setModel(modelValue!);
+        if (value) {
+          setModel(value);
+        }
       }}
       defaultValue={data[0]}
     >

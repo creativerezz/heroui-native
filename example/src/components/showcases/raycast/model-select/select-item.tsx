@@ -25,7 +25,7 @@ export const SelectItem: FC<Props> = ({ data }) => {
   return (
     <Select.Item
       key={data.value}
-      value={data.value}
+      value={data}
       label={data.label}
       className={cn(
         'pl-4 pr-3 py-4 rounded-2xl overflow-hidden',

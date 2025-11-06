@@ -42,7 +42,9 @@
     "prepare": "bob build",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s --commit-path .",
     "sync-version": "bash ./scripts/sync-version.sh",
-    "release": "bumpp --execute='yarn changelog' --all"
+    "release": "bumpp --execute='yarn changelog' --all",
+    "android": "expo run:android",
+    "ios": "expo run:ios"
   },
   "keywords": [
     "react-native",
@@ -79,6 +81,7 @@
     "@types/react": "^19.0.12",
     "babel-plugin-module-resolver": "^5.0.2",
     "babel-plugin-transform-remove-imports": "^1.8.0",
+    "babel-preset-expo": "~13.0.0",
     "bumpp": "^9.10.2",
     "changelogithub": "^13.16.0",
     "commitlint": "^19.6.1",
@@ -173,5 +176,10 @@
     "languages": "js",
     "type": "library",
     "version": "0.51.1"
+  },
+  "dependencies": {
+    "expo": "~53.0.0",
+    "react": "19.0.0",
+    "react-native": "0.79.6"
   }
 }

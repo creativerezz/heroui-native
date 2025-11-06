@@ -1,0 +1,13 @@
+{
+  "expo": {
+    "runtimeVersion": "1.0.0",
+    "ios": {
+      "bundleIdentifier": "com.creativerez.heroui-native"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "a876630a-abc1-4d94-8f45-6afa0028be49"
+      }
+    }
+  }
+}

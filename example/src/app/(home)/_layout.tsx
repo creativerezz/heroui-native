@@ -1,5 +1,5 @@
-import { isLiquidGlassAvailable } from 'expo-glass-effect';
-import { Stack } from 'expo-router';
+import Feather from '@expo/vector-icons/Feather';
+import { Tabs } from 'expo-router';
 import { useThemeColor } from 'heroui-native';
 import { useCallback } from 'react';
 import { Image, Platform, StyleSheet } from 'react-native';
@@ -26,7 +26,7 @@ export default function Layout() {
   const _renderThemeToggle = useCallback(() => <ThemeToggle />, []);
 
   return (
-    <Stack
+    <Tabs
       screenOptions={{
         headerTitleAlign: 'center',
         headerTransparent: true,
@@ -42,91 +42,60 @@ export default function Layout() {
           fontFamily: 'Inter_600SemiBold',
         },
         headerRight: _renderThemeToggle,
-        headerBackButtonDisplayMode: 'generic',
-        gestureEnabled: true,
-        gestureDirection: 'horizontal',
-        fullScreenGestureEnabled: isLiquidGlassAvailable() ? false : true,
+        tabBarStyle: {
+          backgroundColor: themeColorBackground,
+          borderTopColor: isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)',
+        },
+        tabBarActiveTintColor: themeColorForeground,
+        tabBarInactiveTintColor: isDark
+          ? 'rgba(255,255,255,0.4)'
+          : 'rgba(0,0,0,0.4)',
         contentStyle: {
           backgroundColor: themeColorBackground,
         },
       }}
     >
-      <Stack.Screen
+      <Tabs.Screen
         name="index"
         options={{
           headerTitle: _renderTitle,
+          title: 'Home',
+          tabBarIcon: ({ color, size }) => (
+            <Feather name="home" size={size} color={color} />
+          ),
         }}
       />
-      <Stack.Screen
-        name="components/index"
-        options={{ headerTitle: 'Components' }}
+      <Tabs.Screen
+        name="components"
+        options={{
+          headerTitle: 'Components',
+          title: 'Components',
+          tabBarIcon: ({ color, size }) => (
+            <Feather name="grid" size={size} color={color} />
+          ),
+        }}
       />
-      <Stack.Screen
-        name="components/accordion"
-        options={{ title: 'Accordion' }}
+      <Tabs.Screen
+        name="themes"
+        options={{
+          headerTitle: 'Themes',
+          title: 'Themes',
+          tabBarIcon: ({ color, size }) => (
+            <Feather name="droplet" size={size} color={color} />
+          ),
+        }}
       />
-      <Stack.Screen name="components/avatar" options={{ title: 'Avatar' }} />
-      <Stack.Screen name="components/button" options={{ title: 'Button' }} />
-      <Stack.Screen name="components/card" options={{ title: 'Card' }} />
-      <Stack.Screen
-        name="components/checkbox"
-        options={{ title: 'Checkbox' }}
-      />
-      <Stack.Screen name="components/chip" options={{ title: 'Chip' }} />
-      <Stack.Screen name="components/dialog" options={{ title: 'Dialog' }} />
-      <Stack.Screen
-        name="components/dialog-native-modal"
-        options={{ title: 'Dialog Native Modal', presentation: 'formSheet' }}
-      />
-      <Stack.Screen name="components/divider" options={{ title: 'Divider' }} />
-      <Stack.Screen
-        name="components/error-view"
-        options={{ title: 'Error View' }}
-      />
-      <Stack.Screen
-        name="components/form-field"
-        options={{ title: 'Form Field' }}
-      />
-      <Stack.Screen name="components/popover" options={{ title: 'Popover' }} />
-      <Stack.Screen
-        name="components/popover-native-modal"
-        options={{ title: 'Popover Native Modal', presentation: 'formSheet' }}
-      />
-      <Stack.Screen
-        name="components/radio-group"
-        options={{ title: 'Radio Group' }}
-      />
-      <Stack.Screen
-        name="components/scroll-shadow"
-        options={{ title: 'Scroll Shadow' }}
-      />
-      <Stack.Screen
-        name="components/select-native-modal"
-        options={{ title: 'Select Native Modal', presentation: 'formSheet' }}
-      />
-      <Stack.Screen name="components/select" options={{ title: 'Select' }} />
-      <Stack.Screen
-        name="components/skeleton"
-        options={{ title: 'Skeleton' }}
-      />
-      <Stack.Screen name="components/spinner" options={{ title: 'Spinner' }} />
-      <Stack.Screen name="components/surface" options={{ title: 'Surface' }} />
-      <Stack.Screen name="components/switch" options={{ title: 'Switch' }} />
-      <Stack.Screen name="components/tabs" options={{ title: 'Tabs' }} />
-      <Stack.Screen
-        name="components/text-field"
-        options={{ title: 'TextField' }}
-      />
-      <Stack.Screen name="themes/index" options={{ headerTitle: 'Themes' }} />
-      <Stack.Screen
+      <Tabs.Screen
         name="showcases"
         options={{
           headerShown: false,
-          animation: 'slide_from_bottom',
-          animationDuration: 300,
+          title: 'Showcases',
+          tabBarIcon: ({ color, size }) => (
+            <Feather name="star" size={size} color={color} />
+          ),
         }}
       />
-    </Stack>
+    </Tabs>
   );
 }
 
