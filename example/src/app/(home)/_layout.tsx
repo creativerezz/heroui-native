@@ -95,6 +95,16 @@ export default function Layout() {
           ),
         }}
       />
+      <Tabs.Screen
+        name="changelog"
+        options={{
+          headerTitle: "What's New",
+          title: 'Changelog',
+          tabBarIcon: ({ color, size }) => (
+            <Feather name="bell" size={size} color={color} />
+          ),
+        }}
+      />
     </Tabs>
   );
 }

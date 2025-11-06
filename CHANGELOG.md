@@ -1,3 +1,16 @@
+## Unreleased (2025-11-06)
+
+* feat: add iOS native support and EAS build configuration ([6cd200a](https://github.com/heroui-inc/heroui-native/commit/6cd200a))
+  - Add iOS project setup for both library and example app
+  - Configure EAS build with eas.json
+  - Update app.json with iOS-specific configurations
+  - Add WARP.md documentation
+  - Update example app navigation layouts with Components and Themes routes
+  - Add Podfile dependencies and configurations
+  - Update package dependencies for iOS support
+  - Add docs/components.md documentation
+
+
 ## 1.0.0-beta.1 (2025-11-04)
 
 * chore: initial set up of uniwind ([9422c72](https://github.com/heroui-inc/heroui-native/commit/9422c72))
